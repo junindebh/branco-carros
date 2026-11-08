@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+{{head}}
+</head>
+<body>
+{{simbolos}}
+{{topo}}
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="status" id="status"><span class="dot"></span><span id="statusText">Rolim de Moura, RO</span></p>
+      <h1>Compre, venda ou troque seu veículo em <em>Rolim de Moura</em></h1>
+      <p class="lead">Financiamento e locadora no mesmo lugar. Venha até a Av. 25 de Agosto ou chame a equipe pelo WhatsApp.</p>
+      <div class="cta-row">
+        <a class="btn btn-wa" href="{{wa_geral}}" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="#estoque">Ver estoque</a>
+      </div>
+      <p class="sign" aria-label="Compra, venda, troca, financiamento e locadora"><span>Compra</span><span>Venda</span><span>Troca</span><span>Financia</span><span>Locadora</span></p>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/fachada.jpg" width="800" height="510" alt="Fachada da Branco Veículos na Av. 25 de Agosto, com picapes expostas na vitrine">
+      <figcaption>Nossa loja, na {{end_rua}}</figcaption>
+    </figure>
+  </div>
+</section>
+<div class="hazard" aria-hidden="true"></div>
+
+<section class="sec" id="estoque">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Estoque</h2>
+        <p class="sec-intro">Escolha um veículo para ver as fotos e a ficha completa, ou fale com a equipe pelo WhatsApp.</p>
+      </div>
+    </div>
+    {{aviso_exemplo}}
+    <div class="tools">
+      <div class="filters" role="group" aria-label="Filtrar por tipo">
+        <button class="chip" type="button" data-f="todos" aria-pressed="true">Todos</button>
+        {{chips}}
+      </div>
+      <label class="sort" for="ordem">Ordenar por
+        <select id="ordem">
+          <option value="padrao">Destaques</option>
+          <option value="preco-asc">Menor preço</option>
+          <option value="preco-desc">Maior preço</option>
+          <option value="ano-desc">Mais novo</option>
+          <option value="km-asc">Menor quilometragem</option>
+        </select>
+      </label>
+    </div>
+    <div class="grid" id="grid">
+{{cards}}
+    </div>
+    <p class="empty" id="vazio" hidden>Nenhum veículo neste filtro agora. Fale com a equipe pelo WhatsApp.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="servicos">
+  <div class="wrap">
+    <div class="sec-head"><h2>O que fazemos</h2></div>
+    <ul class="svc-list">
+      <li class="svc"><h3>Venda</h3><p>Veículos disponíveis no nosso estoque. Veja os modelos e fale com a equipe.</p><a class="go" href="#estoque">Ver estoque</a></li>
+      <li class="svc"><h3>Compra</h3><p>Quer vender seu veículo? Conte o modelo, o ano e a quilometragem e receba uma proposta.</p><a class="go" href="#avaliacao">Pedir avaliação</a></li>
+      <li class="svc"><h3>Troca</h3><p>Use o seu veículo atual na negociação do próximo.</p><a class="go" href="#avaliacao">Avaliar minha troca</a></li>
+      <li class="svc"><h3>Financiamento</h3><p>Simule a parcela e fale com a equipe sobre as condições.</p><a class="go" href="#financiamento">Simular</a></li>
+      <li class="svc"><h3>Locadora</h3><p>Veículos para alugar. Consulte modelos, períodos e valores.</p><a class="go" href="#locadora">Saber mais</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="financiamento">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Simule seu financiamento</h2>
+        <p class="sec-intro">Informe o valor, a entrada e o prazo para ter uma ideia da parcela.</p>
+      </div>
+    </div>
+    <div class="two">
+      <form class="panel" id="sim" novalidate>
+        <div class="fields">
+          <div class="full">
+            <label for="s-valor">Valor do veículo (R$)</label>
+            <input id="s-valor" type="number" inputmode="decimal" min="0" step="500" value="90000">
+          </div>
+          <div>
+            <label for="s-entrada">Entrada (R$)</label>
+            <input id="s-entrada" type="number" inputmode="decimal" min="0" step="500" value="30000">
+          </div>
+          <div>
+            <label for="s-parcelas">Parcelas</label>
+            <select id="s-parcelas">
+              <option>12</option><option>24</option><option>36</option><option selected>48</option><option>60</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="s-taxa">Taxa mensal estimada (%)</label>
+            <input id="s-taxa" type="number" inputmode="decimal" min="0" step="0.01" value="{{taxa}}">
+            <p class="hint">A taxa real depende da análise de crédito e do banco.</p>
+          </div>
+        </div>
+      </form>
+      <div class="result" aria-live="polite">
+        <div>
+          <p class="lbl">Parcela estimada</p>
+          <p class="big" id="r-parcela">R$ 0,00</p>
+        </div>
+        <dl>
+          <dt>Valor financiado</dt><dd id="r-fin">R$ 0,00</dd>
+          <dt>Total a pagar em parcelas</dt><dd id="r-total">R$ 0,00</dd>
+        </dl>
+        <a class="btn btn-wa" id="r-wa" href="{{wa_geral}}" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>Enviar simulação pelo WhatsApp</a>
+        <p class="fine">Simulação aproximada, sem valor contratual. As condições finais são confirmadas pela equipe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="avaliacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Avalie seu veículo</h2>
+        <p class="sec-intro">Para vender ou usar na troca, preencha os dados abaixo. Ao enviar, abrimos o WhatsApp com a mensagem pronta.</p>
+      </div>
+    </div>
+    <div class="two">
+      <form class="panel" id="troca" novalidate>
+        <div class="fields">
+          <div class="full">
+            <label for="t-nome">Seu nome</label>
+            <input id="t-nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="full">
+            <label for="t-modelo">Marca e modelo</label>
+            <input id="t-modelo" type="text" placeholder="Ex.: Toyota Hilux SRV 2.8" required>
+          </div>
+          <div>
+            <label for="t-ano">Ano</label>
+            <input id="t-ano" type="number" inputmode="numeric" min="1980" max="2030" placeholder="2020" required>
+          </div>
+          <div>
+            <label for="t-km">Quilometragem</label>
+            <input id="t-km" type="number" inputmode="numeric" min="0" step="1000" placeholder="60000">
+          </div>
+          <div class="full">
+            <label for="t-obs">Observações</label>
+            <textarea id="t-obs" placeholder="Estado geral, revisões, financiamento em aberto..."></textarea>
+          </div>
+        </div>
+        <button class="btn btn-wa" type="submit" style="margin-top:1.2rem"><svg><use href="#i-chat"/></svg>Enviar pelo WhatsApp</button>
+        <p class="form-note" id="t-nota" role="status"></p>
+      </form>
+      <div>
+        <h3 style="font-size:1.8rem;text-transform:uppercase;font-weight:700">Como funciona</h3>
+        <ul class="checks">
+          <li>Você informa o veículo e a equipe responde pelo WhatsApp.</li>
+          <li>A proposta pode ser para compra ou para usar o veículo na troca.</li>
+          <li>Fotos ajudam. Mande pelo WhatsApp depois de enviar os dados.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="locadora">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Locadora</h2>
+        <p class="sec-intro">Precisa de um veículo por alguns dias ou por mais tempo? Consulte os modelos disponíveis, os períodos e os valores com a equipe.</p>
+      </div>
+      <a class="btn btn-wa" href="{{wa_locadora}}" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>Consultar locação</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="sobre">
+  <div class="wrap about">
+    <figure><img src="assets/fachada.jpg" width="800" height="510" alt="Loja da Branco Veículos vista da calçada" loading="lazy"></figure>
+    <div>
+      <h2>Branco Veículos</h2>
+      <p style="margin-top:1rem">Atendemos em Rolim de Moura, Rondônia, com compra, venda, troca, financiamento e locadora de veículos.</p>
+      <p>Venha conhecer o estoque na Av. 25 de Agosto, no bairro Centenário, ou chame a equipe pelo WhatsApp para saber o que está disponível hoje.</p>
+      <div class="cta-row">
+        <a class="btn btn-line" href="{{instagram_url}}" target="_blank" rel="noopener"><svg><use href="#i-insta"/></svg>Veja as novidades no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contato">
+  <div class="wrap">
+    <div class="sec-head"><h2>Contato e horários</h2></div>
+    <div class="contact">
+      <div class="info">
+        <div>
+          <h3>Endereço</h3>
+          <address>{{end_rua}}<br>{{end_bairro_cidade}}<br>CEP {{cep}}</address>
+          <a class="btn btn-line map-link" href="{{mapa_url}}" target="_blank" rel="noopener">Abrir no mapa</a>
+        </div>
+        <div>
+          <h3>Telefones</h3>
+          {{telefones_html}}
+        </div>
+        <div>
+          <h3>Online</h3>
+          <p><a href="mailto:{{email}}">{{email}}</a></p>
+          <p><a href="{{instagram_url}}" target="_blank" rel="noopener">@{{instagram}}</a></p>
+          <a class="btn btn-line map-link" href="{{instagram_url}}" target="_blank" rel="noopener"><svg><use href="#i-insta"/></svg>Seguir no Instagram</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="font-size:1.8rem;text-transform:uppercase;font-weight:700;margin-bottom:.6rem">Horário de atendimento</h3>
+        <table class="hours"><tbody id="horarios">
+{{horarios_html}}
+        </tbody></table>
+        <p class="hint">Horário de Rondônia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+{{rodape}}
+</body>
+</html>
