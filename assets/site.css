@@ -51,9 +51,27 @@ p{margin:0}
 @media (max-width:860px){
   .top .btn{display:none}
   .top-row{flex-wrap:wrap;max-width:100%}
-  .menu{order:3;width:100%;max-width:100vw;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-inline:0;padding-bottom:.45rem;scrollbar-width:none;display:flex;flex-wrap:nowrap}
+  .menu{
+    order:3;
+    width:calc(100% + 36px);
+    margin-inline:-18px;
+    padding-inline:18px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:.45rem;
+    scrollbar-width:none;
+    display:flex;
+    flex-wrap:nowrap;
+  }
   .menu::-webkit-scrollbar{display:none}
-  .menu a{white-space:nowrap}
+  .menu::after {
+    content: "";
+    flex: 0 0 18px; /* Espaço vazio no fim para o último item não colar na borda */
+  }
+  .menu a{
+    white-space:nowrap;
+    flex-shrink:0; /* Impede que os botões encolham */
+  }
 }
 
 /* Abertura */
