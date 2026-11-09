@@ -1,0 +1,11 @@
+exemplo: sim
+nome: Mitsubishi L200 Triton Sport
+marca: Mitsubishi
+modelo: L200 Triton Sport
+tipo: picape
+ano: 2020/2021
+km: 71200
+preco: 219900
+combustivel: Diesel
+cambio: Automático
+cor: Prata

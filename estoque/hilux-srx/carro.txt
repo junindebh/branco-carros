@@ -1,0 +1,29 @@
+# Ficha do veículo. Cada linha é "campo: valor". Linhas com # são comentários.
+# Deixe o valor em branco no que ainda não souber: o site mostra "Consulte".
+
+nome: Toyota Hilux SRX
+marca: Toyota
+modelo: Hilux SRX
+# tipo pode ser: picape, suv ou hatch (hatch e sedã)
+tipo: picape
+# ano: 2021/2022 (fabricação/modelo) ou só 2021
+ano:
+# km e preco: só números, ou no formato 58.400 e 259.900
+km:
+preco:
+combustivel:
+cambio: Automático
+cor: Preta
+# extras: pares "Nome=Valor" separados por ponto e vírgula
+extras: Cabine=Dupla; Tração=4x4
+# itens: separados por ponto e vírgula
+itens: Bancos revestidos em couro; Câmbio automático; Central multimídia com tela; Volante multifuncional; Vidros elétricos; Rodas de liga leve; Estribos laterais; Retrovisores cromados; Sensores de estacionamento traseiros; Cobertura da caçamba; Engate; Tapetes de borracha
+# foto usada na capa do cartão e a altura do recorte (0 = topo, 100 = base)
+capa: 02-lateral.jpg
+capa-y: 56
+# destaque: sim coloca o veículo no início da lista
+destaque: sim
+# status: disponivel, vendido (sai da lista, a página fica com aviso) ou oculto
+status: disponivel
+# descricao: texto livre, opcional
+descricao:
